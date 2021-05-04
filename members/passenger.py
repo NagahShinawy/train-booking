@@ -12,6 +12,9 @@ activity_path = os.path.join("data", "activity.json")
 
 
 class Passenger(memb.Member):
+    BOOK = "Book"
+    CANCEL = "Cancel"
+
     def __init__(self, username, email, created):
         super().__init__(username, email)
         self.created = created
@@ -27,7 +30,6 @@ class Passenger(memb.Member):
             print(trip)
 
     def book_trip(self, trip: Trip):
-        action = "Book"
         if trip.train.seats == 0:
             print("No Seats You Can Not Book")
         elif trip in self.trips:
@@ -37,17 +39,16 @@ class Passenger(memb.Member):
             trip.show_trip_details()
             self.trips.append(trip)
             print(f"Your {trip} Was Booked!")
-        self.__save_activity(trip, action)
+        self.__save_activity(trip, self.BOOK)
 
     def cancel_trip(self, trip):
-        action = "Cancel"
         if trip in self.trips:
             self.trips.remove(trip)
             print(f"{trip} for {self} was Canceled")
             trip.train.seats += 1
         else:
             print(f"{trip} was not booked")
-        self.__save_activity(trip, action)
+        self.__save_activity(trip, self.CANCEL)
 
     def __save_activity(self, trip, action):
         activity = {
