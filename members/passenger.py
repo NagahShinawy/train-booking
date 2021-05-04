@@ -15,7 +15,7 @@ class Passenger(memb.Member):
     def __init__(self, username, email, created):
         super().__init__(username, email)
         self.created = created
-        self.data = self.get_activities()
+        self.data = self.load_activities()
 
     def show_info(self):
         super().show_info()
@@ -70,7 +70,7 @@ class Passenger(memb.Member):
             json.dump(self.data[::-1], f, indent=4)
 
     @staticmethod
-    def get_activities():
+    def load_activities():
         data = []
         if not os.path.isfile(activity_path):
             return data
