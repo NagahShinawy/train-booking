@@ -1,4 +1,6 @@
-from member import Passenger, Admin, Driver
+from members.admin import Admin
+from members.driver import Driver
+from members.passenger import Passenger
 from train import Train
 from trip import Trip
 
