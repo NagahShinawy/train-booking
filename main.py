@@ -2,7 +2,6 @@ from member import Passenger, Admin, Driver
 from train import Train
 from trip import Trip
 
-
 if __name__ == "__main__":
     admin = Admin("admin", "admin@gmail.com")
     passng = Passenger("john", "john@gmail.com", "2020-09-17")
@@ -26,8 +25,16 @@ if __name__ == "__main__":
     trip = Trip("x", "y", "2020-09-21 10:00", "2020-09-21 12:00", train3456)
     print(trip)
     print("#" * 100)
-    admin.assign_driver_to_trip(dr, trip)
+    admin.assign_trip_to_driver(dr, trip)
     print(dr.trips)
     print(passng.trips)
     admin.show_member_trips(dr)
     admin.show_member_trips(passng)
+    print("#" * 100)
+    # passng.book_trip(trip)
+    # passng.book_trip(trip)
+    # print("#" * 100)
+    # passng.cancel_trip(trip)
+    passng.cancel_trip(trip)
+    print("#" * 100)
+    passng.get_activities()

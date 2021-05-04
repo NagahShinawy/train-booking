@@ -1,6 +1,9 @@
 """
 created by Nagaj at 03/05/2021
 """
+import datetime
+import json
+
 from exceptions import NoPermission
 from trip import Trip
 
@@ -45,18 +48,63 @@ class Passenger(Member):
         super().show_info()
         print(f"Join Date: {self.created}")
 
-    def list_trips(self):
-        for trip in Trip.trips:
+    @staticmethod
+    def list_trips():
+        for trip in Trip.available:
             print(trip)
 
-    def book_trip(self, trip):
-        pass
+    def book_trip(self, trip: Trip):
+        action = "Book"
+        if trip.train.seats == 0:
+            print("No Seats You Can Not Book")
+        elif trip in self.trips:
+            print(f"Already Booked")
+        else:
+            trip.train.seats -= 1
+            trip.show_trip_details()
+            self.trips.append(trip)
+            print(f"Your {trip} Was Booked!")
+        self.__save_activity(trip, action)
 
     def cancel_trip(self, trip):
+        action = "Cancel"
+        if trip in self.trips:
+            self.trips.remove(trip)
+            print(f"{trip} for {self} was Canceled")
+            trip.train.seats += 1
+        else:
+            print(f"{trip} was not booked")
+        self.__save_activity(trip, action)
+
+    def __save_activity(self, trip, action):
+        data = self.get_activities()
+        activity = {
+            "user": {"username": self.username, "email": self.email},
+            "trip": {
+                "trip_id": repr(trip),
+                "pickup": trip.pickup,
+                "dropoff": trip.dropoff,
+                "pickuptime": trip.pickuptime,
+                "dropoff_time": trip.dropoff_time,
+                "train": trip.train.number,
+            },
+            "action": action,
+            "datetime": datetime.datetime.strftime(
+                datetime.datetime.now(), "%Y-%m-%d %H-%M-%S"
+            ),
+        }
+        data.append(activity)
+        with open("activity.json", "w") as f:
+            json.dump(data[::-1], f, indent=4)
+
+    def to_json(self):
         pass
 
-    def list_trip_history(self):
-        pass
+    @staticmethod
+    def get_activities():
+        with open("activity.json", "r") as f:
+            data = json.load(f)
+        return data
 
 
 class Driver(Member):
@@ -78,7 +126,7 @@ class Admin(Member):
         super().__init__(username, email)
 
     @staticmethod
-    def assign_driver_to_trip(driver: Driver, trip):
+    def assign_trip_to_driver(driver: Driver, trip):
         driver.trips.append(trip)
 
     def show_members(self):
