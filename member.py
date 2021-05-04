@@ -3,7 +3,7 @@ created by Nagaj at 03/05/2021
 """
 import datetime
 import json
-
+import os
 from exceptions import NoPermission
 from trip import Trip
 
@@ -43,6 +43,7 @@ class Passenger(Member):
     def __init__(self, username, email, created):
         super().__init__(username, email)
         self.created = created
+        self.data = self.get_activities()
 
     def show_info(self):
         super().show_info()
@@ -77,7 +78,6 @@ class Passenger(Member):
         self.__save_activity(trip, action)
 
     def __save_activity(self, trip, action):
-        data = self.get_activities()
         activity = {
             "user": {"username": self.username, "email": self.email},
             "trip": {
@@ -90,18 +90,18 @@ class Passenger(Member):
             },
             "action": action,
             "datetime": datetime.datetime.strftime(
-                datetime.datetime.now(), "%Y-%m-%d %H-%M-%S"
+                datetime.datetime.now(), "%Y-%m-%d %H:%M:%S"
             ),
         }
-        data.append(activity)
+        self.data.append(activity)
         with open("activity.json", "w") as f:
-            json.dump(data[::-1], f, indent=4)
-
-    def to_json(self):
-        pass
+            json.dump(self.data[::-1], f, indent=4)
 
     @staticmethod
     def get_activities():
+        data = []
+        if not os.path.isfile("activity.json"):
+            return data
         with open("activity.json", "r") as f:
             data = json.load(f)
         return data

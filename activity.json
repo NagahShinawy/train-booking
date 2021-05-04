@@ -5,7 +5,7 @@
             "email": "john@gmail.com"
         },
         "trip": {
-            "trip_id": "Trip<bf8e1d87-eda3-4dde-863a-fdc54a8f93d0>",
+            "trip_id": "Trip<b2102cb5-64bd-4bc5-ae75-db8a4889a715>",
             "pickup": "x",
             "dropoff": "y",
             "pickuptime": "2020-09-21 10:00",
@@ -13,7 +13,7 @@
             "train": "3456"
         },
         "action": "Cancel",
-        "datetime": "2021-05-04 08-59-19"
+        "datetime": "2021-05-04 09:22:29"
     },
     {
         "user": {
@@ -21,58 +21,14 @@
             "email": "john@gmail.com"
         },
         "trip": {
-            "trip_id": "Trip<42ab9555-2fdc-4078-be4c-0ce2ef1a61ad>",
+            "trip_id": "Trip<b2102cb5-64bd-4bc5-ae75-db8a4889a715>",
             "pickup": "x",
             "dropoff": "y",
             "pickuptime": "2020-09-21 10:00",
             "dropoff_time": "2020-09-21 12:00",
             "train": "3456"
         },
-        "action": "Cancel"
-    },
-    {
-        "user": {
-            "username": "john",
-            "email": "john@gmail.com"
-        },
-        "trip": {
-            "trip_id": "Trip<42ab9555-2fdc-4078-be4c-0ce2ef1a61ad>",
-            "pickup": "x",
-            "dropoff": "y",
-            "pickuptime": "2020-09-21 10:00",
-            "dropoff_time": "2020-09-21 12:00",
-            "train": "3456"
-        },
-        "action": "Cancel"
-    },
-    {
-        "user": {
-            "username": "john",
-            "email": "john@gmail.com"
-        },
-        "trip": {
-            "trip_id": "Trip<42ab9555-2fdc-4078-be4c-0ce2ef1a61ad>",
-            "pickup": "x",
-            "dropoff": "y",
-            "pickuptime": "2020-09-21 10:00",
-            "dropoff_time": "2020-09-21 12:00",
-            "train": "3456"
-        },
-        "action": "Book"
-    },
-    {
-        "user": {
-            "username": "john",
-            "email": "john@gmail.com"
-        },
-        "trip": {
-            "trip_id": "Trip<42ab9555-2fdc-4078-be4c-0ce2ef1a61ad>",
-            "pickup": "x",
-            "dropoff": "y",
-            "pickuptime": "2020-09-21 10:00",
-            "dropoff_time": "2020-09-21 12:00",
-            "train": "3456"
-        },
-        "action": "Book"
+        "action": "Book",
+        "datetime": "2021-05-04 09:22:29"
     }
 ]
