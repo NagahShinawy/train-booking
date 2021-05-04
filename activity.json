@@ -5,7 +5,7 @@
             "email": "john@gmail.com"
         },
         "trip": {
-            "trip_id": "Trip<b2102cb5-64bd-4bc5-ae75-db8a4889a715>",
+            "trip_id": "Trip<206b6a30-5448-482c-8133-41d5b7239595>",
             "pickup": "x",
             "dropoff": "y",
             "pickuptime": "2020-09-21 10:00",
@@ -13,7 +13,23 @@
             "train": "3456"
         },
         "action": "Cancel",
-        "datetime": "2021-05-04 09:22:29"
+        "datetime": "2021-05-04 09:24:32"
+    },
+    {
+        "user": {
+            "username": "john",
+            "email": "john@gmail.com"
+        },
+        "trip": {
+            "trip_id": "Trip<206b6a30-5448-482c-8133-41d5b7239595>",
+            "pickup": "x",
+            "dropoff": "y",
+            "pickuptime": "2020-09-21 10:00",
+            "dropoff_time": "2020-09-21 12:00",
+            "train": "3456"
+        },
+        "action": "Book",
+        "datetime": "2021-05-04 09:24:32"
     },
     {
         "user": {
@@ -29,6 +45,22 @@
             "train": "3456"
         },
         "action": "Book",
+        "datetime": "2021-05-04 09:22:29"
+    },
+    {
+        "user": {
+            "username": "john",
+            "email": "john@gmail.com"
+        },
+        "trip": {
+            "trip_id": "Trip<b2102cb5-64bd-4bc5-ae75-db8a4889a715>",
+            "pickup": "x",
+            "dropoff": "y",
+            "pickuptime": "2020-09-21 10:00",
+            "dropoff_time": "2020-09-21 12:00",
+            "train": "3456"
+        },
+        "action": "Cancel",
         "datetime": "2021-05-04 09:22:29"
     }
 ]

@@ -22,12 +22,6 @@ class Member:
     def __repr__(self):
         return f"<{self.__class__.__name__}><{self.username}>"
 
-    def __contains__(self, item):
-        return item in self.trips
-
-    def __getitem__(self, item):
-        return self.trips[item]
-
     def show_info(self):
         print(f"Username: {self.username}")
         print(f"Email: {self.email}")
